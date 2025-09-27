@@ -2,10 +2,76 @@
 <html>
 <head>
     <title>Download Decrypted File</title>
+    <style>
+        /* Basic page styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            text-align: center;
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        p {
+            font-size: 16px;
+            margin: 10px 0;
+            word-wrap: break-word;
+            overflow-wrap: anywhere;
+        }
+
+        /* Styling the filename */
+        .filename {
+            font-weight: bold;
+            color: #2980b9;
+            max-width: 100%;
+            word-wrap: break-word;
+            overflow-wrap: anywhere;
+            display: inline-block;
+        }
+
+        /* Styling the download link */
+        a[download] {
+            display: inline-block;
+            padding: 12px 25px;
+            margin: 15px 0;
+            background-color: #2980b9;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        a[download]:hover {
+            background-color: #3498db;
+        }
+
+        /* Styling the back link */
+        a[href*="history"] {
+            color: #555;
+            text-decoration: underline;
+            font-size: 14px;
+        }
+
+        a[href*="history"]:hover {
+            color: #2980b9;
+        }
+    </style>
 </head>
 <body>
     <h2>File Ready for Download</h2>
-    <p>Your file <b>{{ file.original_filename }}</b> has been successfully decrypted.</p>
+    <p>Your file <span class="filename">{{ file.original_filename }}</span> has been successfully decrypted.</p>
 
     <a href="{{ file_url }}" download>Download File</a>
 

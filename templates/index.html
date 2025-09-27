@@ -2,23 +2,97 @@
 <html>
 <head>
     <title>Secure File Storage</title>
+    <style>
+        /* Page styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 40px 50px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 450px;
+        }
+
+        h1 {
+            color: #2980b9;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        /* Links list */
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin: 12px 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            background-color: #2980b9;
+            padding: 10px 20px;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+        }
+
+        a:hover {
+            background-color: #3498db;
+        }
+
+        /* Login/Register links */
+        .auth-links a {
+            background-color: transparent;
+            color: #2980b9;
+            margin: 0 10px;
+            padding: 5px 10px;
+        }
+
+        .auth-links a:hover {
+            text-decoration: underline;
+            background-color: transparent;
+            color: #3498db;
+        }
+    </style>
 </head>
 <body>
-    <h1>🔐 Welcome to Secure File Storage</h1>
-    <p>This system allows you to securely upload, encrypt, and decrypt files with your own secret key.</p>
+    <div class="container">
+        <h1>🔐 Welcome to Secure File Storage</h1>
+        <p>This system allows you to securely upload, encrypt, and decrypt files with your own secret key.</p>
 
-    {% if user.is_authenticated %}
-        <p>Hello, {{ user.username }} 👋</p>
-        <ul>
-            <li><a href="{% url 'upload' %}">Upload & Encrypt File</a></li>
-            <li><a href="{% url 'history' %}">My File History</a></li>
-            <li><a href="{% url 'logout' %}">Logout</a></li>
-        </ul>
-    {% else %}
-        <p>
-            <a href="{% url 'login' %}">Login</a> | 
-            <a href="{% url 'register' %}">Register</a>
-        </p>
-    {% endif %}
+        {% if user.is_authenticated %}
+            <p>Hello, {{ user.username }} 👋</p>
+            <ul>
+                <li><a href="{% url 'upload' %}">Upload & Encrypt File</a></li>
+                <li><a href="{% url 'history' %}">My File History</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+        {% else %}
+            <p class="auth-links">
+                <a href="{% url 'login' %}">Login</a> | 
+                <a href="{% url 'register' %}">Register</a>
+            </p>
+        {% endif %}
+    </div>
 </body>
 </html>

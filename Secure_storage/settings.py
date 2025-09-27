@@ -123,3 +123,11 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 media_root = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+SESSION_COOKIE_AGE = 60
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
+FILE_UPLOAD_PERMISSIONS = 0o644
+

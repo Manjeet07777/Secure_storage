@@ -2,30 +2,126 @@
 <html>
 <head>
     <title>Upload & Encrypt File</title>
+    <style>
+        /* Page styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 40px 50px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            width: 400px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #2980b9;
+            margin-bottom: 25px;
+            font-size: 24px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="file"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        button {
+            align-self: center;
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #3498db;
+        }
+
+        p {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        a {
+            color: #2980b9;
+            text-decoration: none;
+            margin: 5px 0;
+            display: inline-block;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #3498db;
+        }
+
+        .message {
+            color: green;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .error {
+            color: red;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    <h2>Upload & Encrypt File</h2>
+    <div class="container">
+        <h2>Upload & Encrypt File</h2>
 
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <label>Select File:</label>
-        <input type="file" name="file" required><br><br>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label>Select File:</label>
+            <input type="file" name="file" required>
 
-        <label>Enter Encryption Key:</label>
-        <input type="password" name="key" required><br><br>
+            <label>Enter Encryption Key:</label>
+            <input type="password" name="key" required>
 
-        <button type="submit">Upload</button>
-    </form>
+            <button type="submit">Upload</button>
+        </form>
 
-    {% if message %}
-        <p style="color:green;">{{ message }}</p>
-    {% endif %}
+        {% if message %}
+            <p class="message">{{ message }}</p>
+        {% endif %}
 
-    {% if error %}
-        <p style="color:red;">{{ error }}</p>
-    {% endif %}
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
 
-    <p><a href="{% url 'history' %}">My File History</a></p>
-    <p><a href="{% url 'logout' %}">Logout</a></p>
+        <p><a href="{% url 'history' %}">My File History</a></p>
+        <p><a href="{% url 'logout' %}">Logout</a></p>
+    </div>
 </body>
 </html>
