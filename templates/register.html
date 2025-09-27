@@ -81,10 +81,17 @@
         <h2>Create Account</h2>
         <form method="post">
             {% csrf_token %}
-            {{ form.as_p }}
+            
+            
+            <p>{{ form.username.label_tag }}<br>{{ form.username }}</p>
+            <p>{{ form.password1.label_tag }}<br>{{ form.password1 }}</p>
+            <p>{{ form.password2.label_tag }}<br>{{ form.password2 }}</p>
+            
             <button type="submit">Register</button>
         </form>
-        <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+        <div class="login-link">
+            <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+        </div>
     </div>
 </body>
 </html>

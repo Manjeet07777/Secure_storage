@@ -13,6 +13,10 @@ __pycache__/
 db.sqlite3
 /media/
 *.log
+*.png
+*.jpg
+*.jpeg
+*.gif
 
 # =========================
 # Environment / Virtualenv
