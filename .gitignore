@@ -1,20 +1,48 @@
-# Created by venv; see https://docs.python.org/3/library/venv.html
+# =========================
+# Python
+# =========================
 *.pyc
 __pycache__/
+*.pyo
+*.pyd
+*.swp
+
+# =========================
+# Django
+# =========================
 db.sqlite3
-media/encrypted_files/
-.DS_Store
-.vscode/
-.idea/
+/media/
+*.log
+
+# =========================
+# Environment / Virtualenv
+# =========================
 .env
 .venv/
+venv/
 pip-selfcheck.json
-.venv/
-# PyCharm
-.idea/
 
-# VS Code
+# =========================
+# IDEs
+# =========================
 .vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# =========================
+# OS files
+# =========================
 .DS_Store
-*.log
-thumbs.db
+Thumbs.db
+
+# =========================
+# Pytest / Coverage
+# =========================
+.coverage
+htmlcov/
+*.cover
+*.py,cover
+.cache/
+nosetests.xml
+coverage.xml
