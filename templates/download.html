@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Download Decrypted File</title>
+</head>
+<body>
+    <h2>File Ready for Download</h2>
+    <p>Your file <b>{{ file.original_filename }}</b> has been successfully decrypted.</p>
+
+    <a href="{{ file_url }}" download>Download File</a>
+
+    <p><a href="{% url 'history' %}">Back to My File History</a></p>
+</body>
+</html>

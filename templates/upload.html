@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload & Encrypt File</title>
+</head>
+<body>
+    <h2>Upload & Encrypt File</h2>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label>Select File:</label>
+        <input type="file" name="file" required><br><br>
+
+        <label>Enter Encryption Key:</label>
+        <input type="password" name="key" required><br><br>
+
+        <button type="submit">Upload</button>
+    </form>
+
+    {% if message %}
+        <p style="color:green;">{{ message }}</p>
+    {% endif %}
+
+    {% if error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
+
+    <p><a href="{% url 'history' %}">My File History</a></p>
+    <p><a href="{% url 'logout' %}">Logout</a></p>
+</body>
+</html>

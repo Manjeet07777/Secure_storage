@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Secure File Storage</title>
+</head>
+<body>
+    <h1>🔐 Welcome to Secure File Storage</h1>
+    <p>This system allows you to securely upload, encrypt, and decrypt files with your own secret key.</p>
+
+    {% if user.is_authenticated %}
+        <p>Hello, {{ user.username }} 👋</p>
+        <ul>
+            <li><a href="{% url 'upload' %}">Upload & Encrypt File</a></li>
+            <li><a href="{% url 'history' %}">My File History</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+        </ul>
+    {% else %}
+        <p>
+            <a href="{% url 'login' %}">Login</a> | 
+            <a href="{% url 'register' %}">Register</a>
+        </p>
+    {% endif %}
+</body>
+</html>
